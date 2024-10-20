@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style/style.css">
+    </head>
+    <body>
+        <section>
+            <div class="header">
+                <div class="logo">
+                    <img src="style/images/roistat_logo.png" alt="">
+                </div>
+                <div class="nav">
+                    <span class="nav_1">
+                        <a class="nav_link" href="#">Наши предложения</a>
+                    </span>
+                    <span class="nav_1">
+                        <a class="nav_link" href="#">Цены</a>
+                    </span>
+                </div>
+                <div class="menu">
+                    <input type="checkbox" id="burger-checkbox" class="burger-checkbox">
+                    <label for="burger-checkbox" class="burger"></label>
+                    <ul class="menu-list">
+                        <li><a href="#" class="menu-item">Наши предложения</a><li>
+                        <li><a href="#" class="menu-item">Цены</a><li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main">
+                <div class="text">
+                    <div class="text_1">
+                        <img class="t_1_img" src="style/images/black.png" alt="">
+                    </div>
+                    <div class="text_2">
+                        <img class="t_2_img" src="style/images/friday.png" alt="">
+                        <img class="t_2_img_1" src="style/images/friday_2.png" alt="">
+                    </div>
+                </div>
+                <div class="star">
+                    <img class="star_img" src="style/images/star.png" alt="">
+                </div>
+            </div>
+            <div class="button">
+                <span class="b_txt">
+                    Воспользуйтесь выгодными предложениями от Roistat в ноябре*
+                </span>
+                <div class="btn">
+                    <button class="but" id="mainbutton">
+                        Получить выгоду <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                        </svg>
+                    </button>
+                    <div class="popup" id="popup">
+                        <div class="popup__container">
+                            <div class="popup__wrapper">
+                                <div id="myform">
+                                    <form role="form" action="/requestFine" autocomplete="off" method="POST">
+                                        <span class="reg">
+                                            Регистрация
+                                        </span>
+                                        <input class="input" type="text" name="name" placeholder="Имя">
+                                        <input class="input" type="text" name="ComName" placeholder="Сайт компании">
+                                        <input class="input" type="text" name="tel" placeholder="Телефон">
+                                        <button type="submit" class="but" id="get_code">Получить код</button>
+                                        <div class="check">
+                                            <input class="cbx" type="checkbox" name="cbx" id="cbx" value="yes">
+                                            <label for="cbx" class="pol">Отправляя сведения через электронную форму, вы даете согласие на обработку персональных данных, в том числе сбор, хранение и передачу третьим лицам представленной вами информации на условиях</label>
+                                            <a class="pol_1" href="#">Политики обработки персональных данных.</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="row_1">
+                    <img class="row_img" src="style/images/ff.png" alt="">
+                </div>
+                <div class="row_2">
+                    <img class="row_img" src="style/images/bf.png" alt="">
+                </div>
+            </div>
+            <div class="footer">
+                <span class="footer_txt">
+                    *Акция не распространяется на подключение опций, лимитов, которые были подключены ранее до 1.11.2023 Количество предложений ограничено
+                </span>
+            </div>
+        </section>
+    </body>
+    <script>
+        var popup = document.getElementById("popup");
+
+        var form = document.getElementById("myform")
+        
+        var btn = document.getElementById("mainbutton");
+        
+        btn.onclick = function() {
+            popup.style.display = "block";
+            form.style.display = "block"
+        }
+
+        popup.onclick = function(event) {
+            if (event.target == popup && event.target != form) {
+                popup.style.display = 'none';
+                form.style.display = "none";
+            };
+        }; 
+    </script>
+    <script> 
+    
+        $(document).ready(function() {
+    
+            $("#get_code").load("/script.php");
+    
+        });
+    
+    </script> 
+</html>
